@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Modal, Button} from 'react-bootstrap';
-import {toast} from 'react-toastify';
+// import {toast} from 'react-toastify';
 
 import 'react-select/dist/react-select.css';
 
@@ -21,7 +21,7 @@ class SaveLayoutModal extends Component {
     const layoutExists = this.props.layouts[name];
 
     if (layoutExists) {
-      return toast.warn('A layout with that name already exists');
+      return console.log('A layout with that name already exists');
     }
 
     this.props.onSaveLayout(name);

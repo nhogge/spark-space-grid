@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import localforage from 'localforage';
 import {Button, Glyphicon} from 'react-bootstrap';
 import {reject} from 'lodash';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import {
   API_URL, 
   ACCESS_TOKEN_COOKIE,
@@ -72,7 +72,7 @@ class Main extends Component {
       });
 
       this.setProfile();
-    }).catch(e => toast.error('Error loading spark spaces'));
+    }).catch(e => console.log('Error loading spark spaces'));
 
   }
 
@@ -88,7 +88,7 @@ class Main extends Component {
         layouts: value
       });
     }).catch((err) => {
-      toast.error('Error loading layouts');
+      console.log('Error loading layouts');
     });
   }
 
@@ -97,7 +97,7 @@ class Main extends Component {
     const profile = {};
 
     localforage.setItem(profileKey, profile).catch((err) => {
-      toast.error('Error setting profile');
+      console.log('Error setting profile');
     });
   }
 
@@ -170,10 +170,10 @@ class Main extends Component {
       });
 
       if (layoutName) {
-        toast.success('New layout created!');
+        console.log('New layout created!');
       }
     }).catch(function (err) {
-      toast.error('Could not save layout');
+      console.log('Could not save layout');
     });
   }
 
@@ -191,9 +191,9 @@ class Main extends Component {
         selectedLayout: ''
       });
 
-      toast.success('Layout removed');
+      console.log('Layout removed');
     }).catch(function (err) {
-      toast.error('Could not remove layout');
+      console.log('Could not remove layout');
     });
   }
 
@@ -242,7 +242,7 @@ class Main extends Component {
 
     return (
       <div>
-         <ToastContainer 
+         {/* <ToastContainer 
           position="top-right"
           type="default"
           autoClose={2500}
@@ -251,7 +251,7 @@ class Main extends Component {
           toastClassName="app-toast"
           closeOnClick
           pauseOnHover
-        />
+        /> */}
 
         {
           !loadingSpaces &&
